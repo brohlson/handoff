@@ -17,6 +17,14 @@ export const blogTypes = {
   body: PropTypes.string.isRequired,
 };
 
+export const buttonTypes = {
+  children: PropTypes.node.isRequired,
+  onClick: PropTypes.func,
+  background: PropTypes.string,
+  fullwidth: PropTypes.bool,
+  id: PropTypes.string,
+};
+
 export const userTypes = {
   name: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
@@ -24,4 +32,17 @@ export const userTypes = {
 
 export const homeTypes = {
   users: PropTypes.arrayOf(PropTypes.shape(userTypes)).isRequired,
+};
+
+export const privateRouteTypes = {
+  component: PropTypes.oneOfType([PropTypes.element, PropTypes.func])
+    .isRequired,
+  path: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string),
+  ]).isRequired,
+};
+
+export const layoutTypes = {
+  children: PropTypes.node.isRequired,
 };

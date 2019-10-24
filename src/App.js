@@ -1,102 +1,28 @@
-/* eslint-disable quotes */
-import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import fetch from 'isomorphic-unfetch';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import React, { Fragment } from 'react';
 
-import Home from './views/Home';
-import About from './views/About';
-import Blog from './views/Blog';
-import User from './views/User';
-import NotFound from './views/404';
+import Routes from './Routes';
+import LoadingScreen from './components/LoadingScreen';
 import Global from './style/global';
 import Reset from './style/reset';
-
-import { blogData } from './util/consts';
-import { colors } from './style/consts';
-import endpoints from './util/endpoints';
-
-const Wrapper = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: #fafafa;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 1.6rem;
-
-  p {
-    margin-bottom: 1.2rem;
-  }
-  a button {
-    background: ${colors.grey};
-    line-height: 200%;
-    border: none;
-    border-radius: 0.4rem;
-    padding: 0.4rem 1.2rem;
-  }
-  a {
-    margin-right: 0.8rem;
-    margin-bottom: 0.8rem;
-    &:last-child {
-      margin: 0;
-    }
-  }
-`;
+import { useAuth0 } from './store/auth';
+import { isBrowser } from './util/helpers';
 
 export default function App() {
-  const [dynamicData, setDynamicData] = useState([]);
+  let loading = false;
 
-  useEffect(() => {
-    fetchDynamicData();
-  }, []);
-
-  function getStaticPages() {
-    return blogData.map((page, index) => {
-      return (
-        <Route key={index} path={`/blog/${page.slug}`}>
-          <Blog {...page} />
-        </Route>
-      );
-    });
+  if (isBrowser()) {
+    loading = useAuth0().loading;
   }
 
-  function fetchDynamicData() {
-    fetch(endpoints.users)
-      .then(res => res.json())
-      .then(data => setDynamicData(data));
-  }
-
-  function getDynamicPages() {
-    if (!dynamicData) return;
-    return dynamicData.map((r, i) => (
-      <Route key={i} path={`/user/${r.id}`}>
-        <User {...r} />
-      </Route>
-    ));
+  if (loading) {
+    return <LoadingScreen />;
   }
 
   return (
-    <Wrapper>
+    <Fragment>
       <Global />
       <Reset />
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/about">
-            <About />
-          </Route>
-          {getDynamicPages()}
-          {getStaticPages()}
-          <Route path="*" component={NotFound} />
-        </Switch>
-      </Router>
-    </Wrapper>
+      <Routes />
+    </Fragment>
   );
 }
