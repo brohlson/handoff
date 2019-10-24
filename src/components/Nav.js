@@ -7,14 +7,22 @@ import { isBrowser } from '../util/helpers';
 const NavBar = () => {
   if (!isBrowser()) return null;
 
-  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  const { isAuthenticated, loginWithRedirect } = useAuth0();
+
+  const getLogoutUrl = () => {
+    return process.env.NODE_ENV === 'production'
+      ? 'https://handoff.auth0.com/v2/logout?returnTo=http%3A%2F%2Fhandoff-www.netlify.com'
+      : 'https://handoff.auth0.com/v2/logout?returnTo=http%3A%2F%2Flocalhost:3000';
+  };
 
   return (
     <Fragment>
       {!isAuthenticated ? (
         <Button onClick={() => loginWithRedirect({})}>Log in</Button>
       ) : (
-        <Button onClick={() => logout({})}>Log out</Button>
+        <a href={getLogoutUrl()}>
+          <Button>Log out</Button>
+        </a>
       )}
     </Fragment>
   );
