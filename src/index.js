@@ -6,6 +6,7 @@ import history from './util/history';
 import { Auth0Provider } from './store/auth';
 import { isBrowser } from './util/helpers';
 import App from './App';
+import { urls } from './util/consts';
 
 const onRedirectCallback = appState => {
   if (isBrowser()) {
@@ -20,7 +21,7 @@ const withAuthNode = (
   <Auth0Provider
     domain={process.env.AUTH0_DOMAIN}
     client_id={process.env.AUTH0_CLIENT_ID}
-    redirect_uri={isBrowser() && window.location.origin}
+    redirect_uri={process.env.NODE_ENV === 'production' ? urls.prod : urls.dev}
     onRedirectCallback={onRedirectCallback}
   >
     <App />

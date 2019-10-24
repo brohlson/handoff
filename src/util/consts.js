@@ -4,3 +4,8 @@ export const breakpoints = {
   tabletSmall: 834,
   mobile: 768,
 };
+
+export const urls = {
+  prod: 'https://handoff-www.netlify.com',
+  dev: 'http://localhost:3000',
+};
