@@ -5,7 +5,7 @@ import Text from '../components/Text';
 import Button from '../components/Button';
 import SEO from '../components/SEO';
 import Layout from '../layouts/Layout';
-import { notFoundSeo } from '../consts/seo';
+import { notFoundSeo } from '../util/seo';
 
 export default function About() {
   return (

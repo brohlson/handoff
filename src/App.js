@@ -4,15 +4,10 @@ import Routes from './Routes';
 import LoadingScreen from './components/LoadingScreen';
 import Global from './style/global';
 import Reset from './style/reset';
-import { useAuth0 } from './store/auth';
-import { isBrowser } from './util/helpers';
+import useAuth from './hooks/useAuth';
 
 export default function App() {
-  let loading = false;
-
-  if (isBrowser()) {
-    loading = useAuth0().loading;
-  }
+  const { loading } = useAuth();
 
   if (loading) {
     return <LoadingScreen />;

@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 import { Route } from 'react-router-dom';
 
 import { privateRouteTypes } from '../util/types';
-import { useAuth0 } from '../store/auth';
+import useAuth from '../hooks/useAuth';
 
 export default function PrivateRoute({ component: Component, path, ...rest }) {
-  const { isAuthenticated, loginWithRedirect } = useAuth0();
+  const { isAuthenticated, loginWithRedirect } = useAuth();
 
   useEffect(() => {
     const fn = async () => {

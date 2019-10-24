@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import history from './util/history';
-import { Auth0Provider } from './store/auth';
+import { Auth0Provider } from './lib/auth';
 import { isBrowser } from './util/helpers';
 import App from './App';
 import { urls } from './util/consts';
