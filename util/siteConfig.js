@@ -1,3 +1,3 @@
 module.exports = {
-  baseUrl: 'https://parcel-react-ssr.netlify.com/',
+  baseUrl: 'https://handoff-www.netlify.com/',
 };
