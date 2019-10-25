@@ -7,9 +7,9 @@ import Button from '../components/Button';
 import Layout from '../layouts/Layout';
 import useAuth from '../hooks/useAuth';
 import LoadingScreen from '../components/LoadingScreen';
-import { settingsSeo } from '../util/seo';
+import { widgetSeo } from '../util/seo';
 
-export default function Settings() {
+export default function Widget() {
   const { loading, user } = useAuth();
 
   if (loading || !user) {
@@ -18,13 +18,10 @@ export default function Settings() {
 
   return (
     <Layout>
-      <SEO {...settingsSeo} />
-      <Text.P text="Settings" />
+      <SEO {...widgetSeo} />
+      <Text.P text="Widget" />
       <Link to="/">
         <Button>Home</Button>
-      </Link>
-      <Link to="/widget/foo">
-        <Button>Widget</Button>
       </Link>
     </Layout>
   );
