@@ -1,10 +1,13 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, Suspense, lazy } from 'react';
 
-import Routes from './Routes';
 import LoadingScreen from './components/LoadingScreen';
+
 import Global from './style/global';
 import Reset from './style/reset';
+
 import useAuth from './hooks/useAuth';
+
+const Routes = lazy(() => import('./Routes'));
 
 export default function App() {
   const { loading } = useAuth();
@@ -17,7 +20,9 @@ export default function App() {
     <Fragment>
       <Global />
       <Reset />
-      <Routes />
+      <Suspense fallback={LoadingScreen}>
+        <Routes />
+      </Suspense>
     </Fragment>
   );
 }
