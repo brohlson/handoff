@@ -1,6 +1,6 @@
 {
-  "name": "parcel-react-ssr",
-  "description": "📦 Starter files for SSR-enabled, Parcel-bundled React apps",
+  "name": "handoff",
+  "description": "⚗️ Experimental serverless React app for client handoff documentation",
   "version": "1.0.0",
   "author": "Chase Ohlson <chase@chaseohlson.com>",
   "license": "MIT",
@@ -14,17 +14,17 @@
     "react-dom": "^16.9.0",
     "react-helmet": "^5.2.1",
     "react-router-dom": "^5.1.2",
-    "styled-components": "^4.3.2",
     "tinycolor": "^0.0.1",
     "tinycolor2": "^1.4.1",
     "typeface-inter": "^3.10.0"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.6.3",
-    "@babel/preset-react": "^7.6.3",
+    "@babel/core": "^7.7.0",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/preset-react": "^7.7.0",
     "@testing-library/jest-dom": "^4.1.2",
     "@testing-library/react": "^9.3.0",
-    "babel-core": "^7.0.0-0",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
     "babel-plugin-styled-components": "^1.10.6",
@@ -45,12 +45,14 @@
     "jest-styled-components": "^6.3.3",
     "netlify-lambda": "^1.6.3",
     "parcel-bundler": "^1.12.3",
+    "parcel-plugin-compress": "^1.0.11",
     "path": "^0.12.7",
     "prettier": "^1.18.2",
     "prop-types": "^15.7.2",
     "react-snap": "^1.23.0",
     "react-test-renderer": "^16.10.2",
-    "rimraf": "^3.0.0"
+    "rimraf": "^3.0.0",
+    "styled-components": "^4.4.1"
   },
   "scripts": {
     "rimraf": "rimraf dist/ && rimraf functions/ && rimraf .cache/ && rimraf node_modules/",
