@@ -4,20 +4,17 @@ import ReactDOM from 'react-dom';
 
 import history from './util/history';
 import { Auth0Provider } from './lib/auth';
-import { isBrowser } from './util/helpers';
 import App from './App';
 import { urls } from './util/consts';
 
 const onRedirectCallback = appState => {
-  if (isBrowser()) {
-    history.push(
-      appState && appState.targetUrl
-        ? appState.targetUrl
-        : window.location.pathname
-    );
-  }
+  history.push(
+    appState && appState.targetUrl
+      ? appState.targetUrl
+      : window.location.pathname
+  );
 };
-const withAuthNode = (
+const renderNode = (
   <Auth0Provider
     domain={process.env.AUTH0_DOMAIN}
     client_id={process.env.AUTH0_CLIENT_ID}
@@ -27,6 +24,5 @@ const withAuthNode = (
     <App />
   </Auth0Provider>
 );
-const renderNode = isBrowser() ? withAuthNode : <App />;
 const mountNode = document.getElementById('app');
 ReactDOM.render(renderNode, mountNode);

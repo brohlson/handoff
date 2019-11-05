@@ -23,9 +23,6 @@ export default function Settings() {
       <Link to="/">
         <Button>Home</Button>
       </Link>
-      <Link to="/widget/foo">
-        <Button>Widget</Button>
-      </Link>
     </Layout>
   );
 }
