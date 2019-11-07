@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import LoadingIcon from '../assets/loading.svg';
+import LoadingIcon from '../public/loading.svg';
 const Wrapper = styled.div`
   position: fixed;
   height: 100%;
