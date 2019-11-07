@@ -1,4 +1,12 @@
-const { q, client } = require('../db');
+const faunadb = require('faunadb');
+require('dotenv').config({
+  path: '.env',
+});
+
+const q = faunadb.query;
+const client = new faunadb.Client({
+  secret: process.env.FAUNADB_SERVER_SECRET,
+});
 
 exports.handler = async (event, context) => {
   console.log('CONTEXT', context);

@@ -46,7 +46,6 @@
     "jest-styled-components": "^6.3.3",
     "netlify-lambda": "^1.6.3",
     "parcel-bundler": "^1.12.3",
-    "parcel-plugin-compress": "^1.0.11",
     "path": "^0.12.7",
     "prettier": "^1.18.2",
     "prop-types": "^15.7.2",
@@ -59,12 +58,12 @@
     "clean": "yarn rimraf && yarn cache clean && yarn",
     "dev": "concurrently \"yarn dev:client\" \"yarn dev:functions\"",
     "dev:client": "rimraf dist/ && node scripts/run-devServer.js",
-    "dev:functions": "netlify-lambda serve api/lambda",
+    "dev:functions": "netlify-lambda serve api",
     "build": "yarn build:client && yarn build:functions",
     "build:client": "rimraf dist/ && NODE_ENV=production parcel build src/index.html",
-    "build:functions": "netlify-lambda build api/lambda",
+    "build:functions": "netlify-lambda build api",
     "serve:client": "parcel serve src/index.html",
-    "serve:functions": "netlify-lambda serve api/lambda",
+    "serve:functions": "netlify-lambda serve api",
     "test": "jest",
     "test:watch": "jest --watch"
   }

@@ -1,14 +1,23 @@
-const { q, client } = require('../db');
-const getId = require('../utils/getId');
+const faunadb = require('faunadb');
+require('dotenv').config({
+  path: '.env',
+});
+
+const q = faunadb.query;
+const client = new faunadb.Client({
+  secret: process.env.FAUNADB_SERVER_SECRET,
+});
 
 exports.handler = async (event, context) => {
   console.log('CONTEXT', context);
   console.log('EVENT', event);
   const errors = [];
-  const id = getId(event.path);
+  const data = JSON.parse(event.body);
   try {
     let results = [];
-    const pages = client.paginate(q.Match(q.Index('projects_by_user_id'), id));
+    const pages = client.paginate(
+      q.Match(q.Index('projects_by_user_id'), data.userId)
+    );
     await pages
       .map(ref => q.Get(ref))
       .each(page => {
