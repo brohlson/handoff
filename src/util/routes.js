@@ -1,4 +1,4 @@
-import { lazy } from 'React';
+import { lazy } from 'react';
 
 const Home = lazy(() => import('../pages/Home'));
 const NotFound = lazy(() => import('../pages/404'));
