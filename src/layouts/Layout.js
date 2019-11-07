@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Nav from '../components/Nav';
+import Header from '../components/Header';
 import { layoutTypes } from '../util/types';
 
 const Wrapper = styled.div``;
@@ -9,7 +9,7 @@ const Wrapper = styled.div``;
 export default function Layout({ children }) {
   return (
     <Wrapper>
-      <Nav />
+      <Header />
       {children}
     </Wrapper>
   );

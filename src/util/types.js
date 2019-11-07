@@ -35,8 +35,7 @@ export const homeTypes = {
 };
 
 export const privateRouteTypes = {
-  component: PropTypes.oneOfType([PropTypes.element, PropTypes.func])
-    .isRequired,
+  component: PropTypes.any.isRequired,
   path: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.arrayOf(PropTypes.string),
@@ -45,4 +44,10 @@ export const privateRouteTypes = {
 
 export const layoutTypes = {
   children: PropTypes.node.isRequired,
+};
+
+export const pageNavItemTypes = {
+  path: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  external: PropTypes.bool,
 };

@@ -1,6 +1,9 @@
-import Home from '../pages/Home';
-import NotFound from '../pages/404';
-import Settings from '../pages/Settings';
+import { lazy } from 'React';
+
+const Home = lazy(() => import('../pages/Home'));
+const NotFound = lazy(() => import('../pages/404'));
+const Dashboard = lazy(() => import('../pages/Dashboard'));
+const Project = lazy(() => import('../pages/Project'));
 
 const routes = [
   {
@@ -10,8 +13,20 @@ const routes = [
     private: false,
   },
   {
-    component: Settings,
-    path: '/settings',
+    component: Project,
+    path: '/project/:projectId',
+    exact: false,
+    private: false,
+  },
+  {
+    component: Dashboard,
+    path: '/dashboard/settings',
+    exact: false,
+    private: true,
+  },
+  {
+    component: Dashboard,
+    path: '/dashboard/projects',
     exact: false,
     private: true,
   },

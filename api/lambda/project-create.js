@@ -1,6 +1,8 @@
 const { q, client } = require('../db');
 
 exports.handler = async (event, context) => {
+  console.log('CONTEXT', context);
+  console.log('EVENT', event);
   const data = JSON.parse(event.body);
   const record = {
     data: data,

@@ -15,15 +15,14 @@ export const colors = {
   dark: '#000',
   light: '#fff',
   grey: '#DBDFE8',
-  greyLight: '#A3A3A3',
+  greyLight: 'rgb(250, 250, 250)',
+  greyLightTint: 'rgb(242, 242, 242)',
   error: '#d42b23',
+  yellow: '#ffc900',
 };
 
 export const z = {
-  page: 1000,
-  modalInner: 11000,
-  modalWrapper: 12000,
-  shelf: 14000,
+  header: 'z-index: 10000;',
 };
 
 export const boxShadow = {
@@ -31,6 +30,11 @@ export const boxShadow = {
 };
 
 export const font = {
+  ui: {
+    regular: `
+      font-size: 1.6rem;
+    `,
+  },
   p: `
     font-size: 1.6rem;
     line-height: 150%;

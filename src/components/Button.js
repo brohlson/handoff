@@ -9,7 +9,7 @@ const Element = styled.button`
   padding: 1.2rem 1.6rem;
   border-radius: 0.4rem;
   border: none;
-  background: ${colors.grey};
+  background: ${colors.greyLightTint};
   color: ${colors.black};
   ${props => props.background && bgcss};
   ${props => props.fullWidth && fwcss};
