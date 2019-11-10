@@ -23,7 +23,7 @@ export default function ProjectListItem({ data }) {
         <span>{data.title}</span>
       </Name>
       <Controls>
-        <Link to={`project/${data.handle}`}>
+        <Link to={`/project/${data.handle}`}>
           <Button>Open</Button>
         </Link>
       </Controls>

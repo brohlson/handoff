@@ -5,18 +5,17 @@ import Text from '../components/Text';
 import Layout from '../layouts/Layout';
 import useAuth from '../hooks/useAuth';
 import LoadingScreen from '../components/LoadingScreen';
-import { settingsSeo } from '../util/seo';
 
 export default function Project() {
-  const { loading, user } = useAuth();
+  const { loading } = useAuth();
 
-  if (loading || !user) {
+  if (loading) {
     return <LoadingScreen />;
   }
 
   return (
     <Layout>
-      <SEO {...settingsSeo} />
+      <SEO title="Project" />
       <Text.P text="Project" />
     </Layout>
   );
