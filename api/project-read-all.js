@@ -13,6 +13,7 @@ exports.handler = async (event, context) => {
   console.log('EVENT', event);
   const errors = [];
   const data = JSON.parse(event.body);
+  console.log('DATA', data);
   try {
     let results = [];
     const pages = client.paginate(

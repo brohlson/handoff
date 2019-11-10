@@ -19,10 +19,12 @@ export const colors = {
   greyLightTint: 'rgb(242, 242, 242)',
   error: '#d42b23',
   yellow: '#ffc900',
+  placeholder: '#ccc',
 };
 
 export const z = {
   header: 'z-index: 10000;',
+  modal: 'z-index: 40000;',
 };
 
 export const boxShadow = {
@@ -33,6 +35,12 @@ export const font = {
   ui: {
     regular: `
       font-size: 1.6rem;
+      line-height: 150%;
+    `,
+    title: `
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 150%;
     `,
   },
   p: `

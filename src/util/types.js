@@ -46,8 +46,32 @@ export const layoutTypes = {
   children: PropTypes.node.isRequired,
 };
 
+export const providerTypes = {
+  children: PropTypes.node.isRequired,
+};
+
 export const pageNavItemTypes = {
   path: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   external: PropTypes.bool,
+};
+export const emptyTypes = {
+  message: PropTypes.string.isRequired,
+  action: PropTypes.func.isRequired,
+  cta: PropTypes.string.isRequired,
+};
+
+export const errorStateTypes = {
+  message: PropTypes.string.isRequired,
+};
+
+export const modalTypes = {
+  title: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+};
+export const formInputTypes = {
+  label: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
 };

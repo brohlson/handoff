@@ -1,5 +1,6 @@
 import 'typeface-inter';
 import { createGlobalStyle } from 'styled-components';
+import { colors } from './consts';
 
 const Global = createGlobalStyle`
 html {
@@ -13,6 +14,8 @@ html {
   @supports (font-variation-settings: normal) {
     html { font-family: 'Inter var', sans-serif; }
   }
+
+  * {outline-color: ${colors.yellow} !important;}
 
   body {
     font-size: 1.6rem;

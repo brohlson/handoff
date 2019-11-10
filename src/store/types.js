@@ -1,0 +1,3 @@
+export const MODALS = {
+  CREATE_PROJECT: 'MODALS/CREATE_PROJECT',
+};

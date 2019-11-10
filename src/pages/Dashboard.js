@@ -1,25 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link, Router, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 import useAuth from '../hooks/useAuth';
 
 import Layout from '../layouts/Layout';
-import SEO from '../components/SEO';
-import Text from '../components/Text';
-import Button from '../components/Button';
 import LoadingScreen from '../components/LoadingScreen';
 import PageNavItem from '../components/PageNavItem';
+import SEO from '../components/SEO';
 import { PageWrapper } from '../components/Elements';
 import DashboardSettings from '../views/DashboardSettings';
 import DashboardProjects from '../views/DashboardProjects';
 
-import { colors, font } from '../style/consts';
+import { dashboardSeo } from '../util/seo';
+
+import { colors } from '../style/consts';
 import { urls } from '../util/consts';
 
 const PageContentWrapper = styled.div`
   display: flex;
-  flex-wrap: wrap;
   position: absolute;
   top: 6rem;
   left: 0;
@@ -35,7 +34,12 @@ const PageNav = styled.div`
   width: 24rem;
 `;
 
-const PageContent = styled.div``;
+const PageContent = styled.div`
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: 2rem;
+`;
 
 export default function Dashboard() {
   const { loading, user } = useAuth();
@@ -61,6 +65,7 @@ export default function Dashboard() {
 
   return (
     <Layout>
+      <SEO {...dashboardSeo} />
       <PageWrapper>
         <PageContentWrapper>
           <PageNav>
