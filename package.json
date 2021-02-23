@@ -9,7 +9,7 @@
     "babel-polyfill": "^6.26.0",
     "dotenv": "^8.2.0",
     "encoding": "^0.1.12",
-    "faunadb": "^2.9.3",
+    "faunadb": "^4.1.1",
     "isomorphic-unfetch": "^3.0.0",
     "react": "^16.9.0",
     "react-async": "^9.0.0",
